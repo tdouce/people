@@ -6,6 +6,10 @@ class MemoryDb
     $memory_db = {records: []}
   end
 
+  def self.all_records
+    $memory_db[:records]
+  end
+
   def self.add_record(record:)
     $memory_db[:records] << record
   end

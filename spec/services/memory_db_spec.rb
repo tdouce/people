@@ -14,6 +14,23 @@ describe MemoryDb do
       end
     end
 
+    describe '.all_records' do
+      let(:record) { 'some_record' }
+      let(:expected_response) do
+        [
+          record
+        ]
+      end
+
+      it 'returns all records' do
+        described_class.add_record(record: record)
+
+        response = described_class.all_records
+
+        expect(response).to eq(expected_response)
+      end
+    end
+
     describe '.add_record' do
       let(:record) { 'some_record' }
       let(:expected_response) do
