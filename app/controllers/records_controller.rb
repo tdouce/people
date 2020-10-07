@@ -18,4 +18,24 @@ class RecordsController < ApplicationController
       status: :created
     )
   end
+
+  def index
+    sort = params[:sort]
+
+    records = ::Records::RecordService.find_records(sort: sort)
+
+    array_serializer = ArraySerializer.new(
+      items: records,
+      serializer_klass: ::Records::Serializers::RecordSerializer
+    )
+
+    serialized_record = array_serializer.serialize
+
+    render(
+      json: {
+        records: serialized_record
+      },
+      status: :ok
+    )
+  end
 end
