@@ -8,7 +8,7 @@ describe Records::Serializers::RecordSerializer do
       first_name: 'some_first_name',
       gender: 'some_gender',
       favorite_color: 'some_favorite_color',
-      date_of_birth: '1985/09/22'
+      date_of_birth: Date.parse('1985/09/22')
     )
   end
 

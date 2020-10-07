@@ -6,7 +6,7 @@ describe Record do
     let(:first_name) { 'some_first_name' }
     let(:gender) { 'some_gender' }
     let(:favorite_color) { 'some_favorite_color' }
-    let(:date_of_birth) { 'some_date_of_birth' }
+    let(:date_of_birth) { '2020/01/01' }
     let(:hash) do
       {
         last_name: last_name,
@@ -24,7 +24,7 @@ describe Record do
       expect(response.last_name).to eq(last_name)
       expect(response.gender).to eq(gender)
       expect(response.favorite_color).to eq(favorite_color)
-      expect(response.date_of_birth).to eq(date_of_birth)
+      expect(response.date_of_birth).to eq(Date.parse(date_of_birth))
     end
   end
 end

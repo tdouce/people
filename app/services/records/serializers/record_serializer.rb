@@ -20,7 +20,7 @@ module Records
       attr_reader :record
 
       def formatted_date_of_birth
-        date_of_birth = Date.parse(record.date_of_birth)
+        date_of_birth = record.date_of_birth
         date_of_birth.strftime('%m/%d/%Y')
       end
     end
