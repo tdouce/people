@@ -72,9 +72,9 @@ To keep it simple, don't worry about using a persistent datastore.
 bundle exec rake files:aggregate_records[data/records_comma_delimited.txt,data/records_pipe_delimited.txt,data/records_space_delimited.txt]
 ```
 
-## Considerations for building the app
+## Considerations When Building App
 
-### Why Rails
+### Why Rails?
 
 Rails has built in support that allows for satisfying all the requirements of the app. Specifically, it is a web framework that
 also supports a command line interface. Additionally, I am more proficient with Rails than any alternative.
@@ -83,7 +83,7 @@ This take home only requires a portion of Rails functionality and so the "API-on
 
 ### Assumptions
  
-There were a number of assumptions taken to simplify this app. These are as follows:
+There were a number of assumptions taken for simplification. These are as follows:
 
 #### Data Store
 
@@ -100,7 +100,7 @@ There were a number of assumptions taken to simplify this app. These are as foll
  * The strings are always consistently formatted
  * The strings do not have leading/trailing whitespaces
  * The parsed substrings do not have leading/trailing whitespaces
- * The date strings are consistently formatted like 'YYYY-MM-DD'
+ * The date strings are consistently formatted like `YYYY-MM-DD`
  * There is no header in the data files or input params to the http endpoints
  * Delimiters (commas, pipes and spaces) do not appear anywhere in the data values themselves.
  * Strings are always consistently ordered like `<Last Name>,<First Name>,<Gender>,<Favorite Color>,<Date Of Birth>`
@@ -114,6 +114,6 @@ There were a number of assumptions taken to simplify this app. These are as foll
 #### HTTP Endpoints
 
  * The `sort` param in `/records/:sort` is always present so there is not need to support a default
- * The `sort` param in `/records/:sort` will always be 'gender' 'birthdate', 'name' (i.e. nothing else)
+ * The `sort` param in `/records/:sort` will always be `gender`, `birthdate`, `name` (i.e. nothing else)
  * The `sort` param `name` in `/records/name` means to sort by `last_name`
  * The `sort` param `birthdate` `/records/birthdate` means to sort by `date_of_birth`
