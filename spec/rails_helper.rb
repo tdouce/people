@@ -66,3 +66,13 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 end
+
+def generate_parsed_record
+  {
+    last_name: 'some_last_name',
+    first_name: 'some_first_name',
+    gender: 'some_gender',
+    favorite_color: 'some_favorite_color',
+    date_of_birth: '1985/09/22'
+  }
+end
