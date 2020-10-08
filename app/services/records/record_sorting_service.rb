@@ -24,6 +24,8 @@ module Records
       records.sort_by {|record| record.gender }
     end
 
+    # NOTE: TKD 2020/10/07
+    # Returns records sorted ascending
     def sort_by_date_of_birth
       records.sort_by {|record| record.date_of_birth }
     end
