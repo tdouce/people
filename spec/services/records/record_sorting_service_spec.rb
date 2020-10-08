@@ -30,10 +30,10 @@ describe Records::RecordSortingService do
     end
     let(:expected_response) do
       [
-        record_4,
         record_3,
-        record_2,
-        record_1
+        record_4,
+        record_1,
+        record_2
       ]
     end
 

@@ -5,13 +5,13 @@ module Records
     end
 
     # NOTE: TKD 2020/10/07
-    # Returns records sorted ascending by gender, then sorted descending by last_name
+    # Returns records sorted ascending by gender, then sorted ascending by last_name
     def sort_by_gender_by_last_name
       records.sort do |a,b|
         comparison = a.gender <=> b.gender
 
         if comparison.zero?
-          comparison = b.last_name <=> a.last_name
+          comparison = a.last_name <=> b.last_name
         end
 
         comparison
