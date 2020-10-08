@@ -15,6 +15,35 @@ describe Records::RecordSortingService do
     )
   end
 
+  describe '#sort_by_gender_by_last_name' do
+    let(:record_1) { instance_double(Record, gender: 'male', last_name: 'a') }
+    let(:record_2) { instance_double(Record, gender: 'male', last_name: 'z') }
+    let(:record_3) { instance_double(Record, gender: 'female', last_name: 'a') }
+    let(:record_4) { instance_double(Record, gender: 'female', last_name: 'z') }
+    let(:records) do
+      [
+        record_1,
+        record_2,
+        record_3,
+        record_4
+      ]
+    end
+    let(:expected_response) do
+      [
+        record_4,
+        record_3,
+        record_2,
+        record_1
+      ]
+    end
+
+    it 'sorts records by gender ascending then by last_name descending' do
+      response = subject.sort_by_gender_by_last_name
+
+      expect(response).to eq(expected_response)
+    end
+  end
+
   describe '#sort_by_gender' do
     let(:record_1) { instance_double(Record, gender: 'male') }
     let(:record_2) { instance_double(Record, gender: 'male') }
