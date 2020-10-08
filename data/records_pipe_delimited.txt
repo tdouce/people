@@ -1,0 +1,3 @@
+Smith|Bill|male|blue|1980-11-02
+Henderson|Carrie|female|red|1985-11-02
+Walker|Pete|male|orange|1985-11-02
