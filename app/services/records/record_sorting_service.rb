@@ -28,8 +28,14 @@ module Records
       records.sort_by {|record| record.date_of_birth }
     end
 
-    def sort_by_last_name
-      records.sort_by {|record| record.last_name }
+    def sort_by_last_name(sort_direction: :asc)
+      records.sort do |a, b|
+        if sort_direction == :asc
+          a.last_name <=> b.last_name
+        elsif sort_direction == :desc
+          b.last_name <=> a.last_name
+        end
+      end
     end
 
     private

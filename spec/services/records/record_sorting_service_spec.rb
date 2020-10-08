@@ -102,21 +102,40 @@ describe Records::RecordSortingService do
   end
 
   describe '#sort_by_last_name' do
-    let(:record_1) { instance_double(Record, last_name: 'Zippy') }
-    let(:record_2) { instance_double(Record, last_name: 'Kip') }
-    let(:record_3) { instance_double(Record, last_name: 'Adam') }
-    let(:expected_response) do
-      [
-        record_3,
-        record_2,
-        record_1
-      ]
+    let(:record_1) { instance_double(Record, last_name: 'k') }
+    let(:record_2) { instance_double(Record, last_name: 'z') }
+    let(:record_3) { instance_double(Record, last_name: 'a') }
+
+    context 'when sort direction is ascending' do
+      let(:expected_response) do
+        [
+          record_3,
+          record_1,
+          record_2
+        ]
+      end
+
+      it 'sorts records by gender ascending' do
+        response = subject.sort_by_last_name
+
+        expect(response).to eq(expected_response)
+      end
     end
 
-    it 'sorts records by gender ascending' do
-      response = subject.sort_by_last_name
+    context 'when sort direction is descending' do
+      let(:expected_response) do
+        [
+          record_2,
+          record_1,
+          record_3
+        ]
+      end
 
-      expect(response).to eq(expected_response)
+      it 'sorts records by gender ascending' do
+        response = subject.sort_by_last_name(sort_direction: :desc)
+
+        expect(response).to eq(expected_response)
+      end
     end
   end
 end
